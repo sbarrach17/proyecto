@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&family=Roboto:ital,wght@0,900;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+
+.App {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    background-color: #f0f2f5;
+}
+.textCard {
+    font-style: italic;
+}
+.navbar {
+    display: flex;
+    background-color: #ccd5ae;
+    justify-content: space-between;
+}
+
+.himage {
+    height: 450px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-clip: initial;
+}
+
+.galeria {
+    border: none;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem;
+    margin-top: 70px;
+}
+.menu{
+    display: flex;
+    justify-content: center;
+}
+.logo {
+    height: 40px;
+    width: 40px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.login {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 80vh;
+}
+.cont-productos {
+    min-height: 80vh;
+}
+.find-product {
+    margin-top: 70px;
+}
+.search {
+    display: flex;
+    width: 38%;
+    justify-content: space-evenly;
+    padding-top: 30px;
+}
+
+.search select {
+    width: 48%;
+}
+
+.search input {
+    width: 48%;
+}
+.containerDet{
+    margin-top: 4rem;
+}
