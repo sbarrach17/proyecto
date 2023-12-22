@@ -1,16 +1,17 @@
-
-.pub-galery{
-    display: grid;    
+.pub-galery {
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 50px;
     margin-top: 50px;
     grid-auto-flow: row;
 }
-.card-g{
+.card-g {
+    position: relative;
     display: flex;
     justify-content: center;
+    width: 300px;
 }
-.flex-container{
+.flex-container {
     display: flex;
     width: 95vw;
     height: 70vh;

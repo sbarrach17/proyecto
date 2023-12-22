@@ -1,13 +1,16 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { Navbar} from 'react-bootstrap'
+import React, { useContext } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { Button, Navbar } from 'react-bootstrap'
 import { Container } from 'react-bootstrap'
 import { Nav } from 'react-bootstrap'
 import logo from '../components/logo1.png'
+import { Context } from '../Context/Provider'
 
 
 
 const Nbar = () => {
+    const { user, setUser, carrito, setCarrito, setPrecioAc, setArrayPrecios, setFavoritos, favoritos } = useContext(Context)
+    const navigate = useNavigate()
 
     return (
         <div>
@@ -18,16 +21,27 @@ const Nbar = () => {
                             <NavLink to="/" style={{ textDecoration: 'none' }}></NavLink>
                         </Navbar.Brand>
                         <Navbar.Brand>
-                            <NavLink to="/" className={"p-2 text-dark"} style={{ textDecoration: 'none' }}><b>Películas y Documentales</b></NavLink>
+                            <NavLink to="/" className={"p-2 text-dark"} style={{ textDecoration: 'none' }}><b className='title-nav'>Películas y Documentales</b></NavLink>
                         </Navbar.Brand>
                     </div>
                     <div>
-                        <Navbar.Toggle aria-controls="navbar-collapse" className='bg-light text-light border border-primary' />
+                        <Navbar.Toggle aria-controls="navbar-collapse" className='nav-pos bg-light text-light border border-primary' />
                         <Navbar.Collapse id="navbar-collapse">
                             <Nav className="me-auto">
-                                <NavLink to="/productos" className={"m-2 p-2 text-dark"} style={{ textDecoration: 'none' }}> <b>Películas</b> </NavLink>
-                                <NavLink to="/registro" className={"m-2 p-2 text-dark"} style={{ textDecoration: 'none' }}> <b>Registro</b> </NavLink>
-                                <NavLink to="/login" className={"m-2 p-2 text-dark"} style={{ textDecoration: 'none' }}> <b>Iniciar Sesión</b> </NavLink>
+                                {user ? (
+                                    <>
+                                        <NavLink to="/productos" className={"m-2 p-2 text-light"} style={{ textDecoration: 'none' }}> <b>Películas</b></NavLink>
+                                        <NavLink to="/perfil" className={"m-2 p-2 text-light"} style={{ textDecoration: 'none' }}> <b>Perfil</b> </NavLink>
+                                        <NavLink to="/dashboard" className={"m-2 p-2 text-light"} style={{ textDecoration: 'none' }}><b>Dashboard </b>❤️{favoritos.length} </NavLink>
+                                        <NavLink to="/carrito" className={"m-2 p-2 text-light"} style={{ textDecoration: 'none' }}>{carrito.length}{" "}🛒</NavLink>
+                                        <Button onClick={() => { setUser(null); setCarrito([]); setPrecioAc(0); setFavoritos([]); setArrayPrecios([]); navigate("/") }}> <b>Cerrar sesión</b> </Button>
+                                    </>) : (
+                                    <>
+                                        <NavLink to="/productos" className={"m-2 p-2 text-light"} style={{ textDecoration: 'none' }}><b>Productos</b></NavLink>
+                                        <NavLink to="/login" className={"m-2 p-2 text-light"} style={{ textDecoration: 'none' }}> <b>Login</b> </NavLink>
+                                    </>)}
+
+
                             </Nav>
                         </Navbar.Collapse>
                     </div>

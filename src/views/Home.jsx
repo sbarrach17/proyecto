@@ -1,5 +1,8 @@
 import BGImgae from '../components/home5.jpg'
 import "../styles/home.css"
+export function capitalizarPrimeraLetra(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
 
 const Home = () => {
 

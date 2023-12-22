@@ -3,10 +3,23 @@ import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import "../styles/login.css"
+import { Context } from '../Context/Provider';
 import { useNavigate } from 'react-router-dom';
+
 
 const Login = () => {
 
+    const { login, email, setEmail, password, setPassword } = useContext(Context)
+    const navigate = useNavigate();
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const user = login(email, password);
+        if (user) {
+
+            return navigate("/perfil");
+        }
+        alert("Contraseña incorrecta o email no registrado");
+    }
 
     return (
         <div className='login'>
@@ -21,7 +34,7 @@ const Login = () => {
                         <Form.Control
                             type="email"
                             placeholder="Ingrese su Email"
-
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
                     <div className="email-password">
@@ -29,13 +42,13 @@ const Login = () => {
                         <Form.Control
                             type="password"
                             placeholder="Ingrese su contraseña"
+                            onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
-                    <Link to="/productos">
-                        <Button type="submit" variant="primary" >
-                            Ingresar
-                        </Button>
-                    </Link>
+
+                    <Button type="submit" variant="primary" onClick={handleSubmit}>
+                        Ingresar
+                    </Button>
                     <div className="validates-data">
                         <p>Aquí puedes crear una cuenta nueva</p>
                         <Link to="/registro">
