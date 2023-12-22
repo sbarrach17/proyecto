@@ -1,29 +1,11 @@
 .dashboard {
-    margin: 72px 0;
-    min-height: 75vh;
+    margin-top: 3rem;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding-top: 2rem;
-}
-
-.button {
-    height: 50px;
-    width: 180px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px !important;
-}
-h5 {
-    margin: 20px 0;
-    font-size: 30px;
-}
-.d-galery {
-    display: flex;
-    gap: 10px;
 }
 .favorites {
     display: grid;
@@ -31,6 +13,20 @@ h5 {
     gap: 20px;
     margin-bottom: 2rem;
     min-height: 100vh;
+}
+.button {
+    height: 50px;
+    width: 180px;
+    display: flex;
+}
+
+.favorites {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 2rem;
+    min-height: 100vh;
+    text-align: center;
 }
 .publish {
     display: grid;
@@ -40,11 +36,24 @@ h5 {
     gap: 20px;
     min-height: 100vh;
 }
+.lengthText{
+    margin-top: 1rem;
+}
+
+
 @media (max-width: 700px) {
     .dashboard {
-        margin-top: 56px;
+        margin-top: 2rem;
     }
     .button {
         font-size: 12px;
+    }
+    .favorites {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .publish{
+        display: grid;
+        grid-template-columns: 1fr;
     }
 }

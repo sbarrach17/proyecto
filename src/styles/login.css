@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     height: 93vh;
+
 }
 
 .card-login {
@@ -16,6 +17,7 @@
     background-color: white;
     border-radius: 5%;
     padding-bottom: 0px;
+    background-color: rgb(13, 9, 50);
 }
 
 .email-password{

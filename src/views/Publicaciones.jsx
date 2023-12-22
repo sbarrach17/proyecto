@@ -1,45 +1,34 @@
-import React from 'react'
-import { useContext } from 'react'
-import { Context } from '../Context/Provider'
-import Cardb from '../components/Cardb'
-import { Button } from 'react-bootstrap'
-import "../styles/dashboard.css"
-import { Link } from 'react-router-dom'
+import  { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
+import { Context } from '../Context/Provider';
+import PublicacionesItem from '../components/PublicacionesItem';
+import '../styles/dashboard.css';
 
 const Publicaciones = () => {
-  const { productos, user, deleteProducto } = useContext(Context)
-  const productosFilt = productos.filter(producto => producto.userid === user.id)
+  const { productos, user, deleteProducto } = useContext(Context);
+  const productosFilt = productos.filter(producto => producto.userid === user.id);
+
   return (
-    <div className='dashboard'>
-      <h1 className='h1-t'> <b>Dashboard</b> </h1>
-      <div className='d-buttons'>
-        <Link to="/dashboard"><Button className='button bg-primary'><b>Mis Favoritos</b></Button></Link>
-        <Link to="/agregarp"><Button className='button bg-primary'><b>Agregar publicación</b></Button></Link>
-      </div>
+    <section className='dashboard pt-5'> 
       <div>
-        <h5><b>Mis Publicaciones</b></h5>
+        <h1>Mis publicaciones</h1>
+        <Link to="/agregarp">
+          <Button to="/agregarp">Nueva publicación <img width="30" height="30" src="https://img.icons8.com/fluency/48/add-to-favorites.png" alt="add-to-favorites"/> </Button>
+        </Link>
       </div>
-      <div className='pub-galery'>
-        <div className='d-galery'>
-          {productosFilt.map(productosFilt =>
-            <div key={productosFilt.id} className="card-g" style={{ width: '18rem' }}>
-              <Cardb
-                image={productosFilt.imagen}
-                name={productosFilt.nombre}
-                price={productosFilt.price}
-                boton2={
-                  <Link to={`/publicaciones/${productosFilt.id}`}>
-                    <Button variant="primary" className='mx-2 bg-primary border border-0'>Editar</Button>
-                  </Link>}
-                boton3={<Button onClick={() => { deleteProducto(productosFilt.id) }} className='mx-2 bg-danger border border-0'>Eliminar</Button>}
-              /></div>
-          )}
+      
+      
+        <div className='publish'>
+          {productosFilt.map(producto => (
+            <PublicacionesItem key={producto.id} product={producto} onDelete={deleteProducto} />
+          ))}
         </div>
+      
+      
+    </section>
+  );
+};
 
-      </div>
+export default Publicaciones;
 
-    </div>
-  )
-}
-
-export default Publicaciones

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -25,11 +25,11 @@ const Login = () => {
         <div className='login'>
             <div className="container-login">
                 <div className="card-login">
-                    <div className="title-login">
+                    <div className="title-login text-white">
                         <h3>Iniciar sesión</h3>
                         <hr />
                     </div>
-                    <div className="email-password">
+                    <div className="email-password text-white">
                         <p>Email</p>
                         <Form.Control
                             type="email"
@@ -37,7 +37,7 @@ const Login = () => {
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
-                    <div className="email-password">
+                    <div className="email-password text-white">
                         <p>Contraseña</p>
                         <Form.Control
                             type="password"
@@ -46,13 +46,13 @@ const Login = () => {
                         />
                     </div>
 
-                    <Button type="submit" variant="primary" onClick={handleSubmit}>
+                    <Button type="submit" variant="primary" className='btn btn-success' onClick={handleSubmit}>
                         Ingresar
                     </Button>
-                    <div className="validates-data">
+                    <div className="validates-data text-white">
                         <p>Aquí puedes crear una cuenta nueva</p>
                         <Link to="/registro">
-                            <Button type="submit" variant="primary">
+                            <Button type="submit" variant="primary" className='btn btn-primary text-white'>
                                 ir a Registro
                             </Button>
                         </Link>

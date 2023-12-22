@@ -1,4 +1,3 @@
-import React from 'react';
 
 const Cardb = ({ image, name, direccion, country, gender, duracion, estreno, price, boton1, boton2, boton3 }) => {
   return (

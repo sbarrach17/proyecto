@@ -88,17 +88,20 @@ export function Provider({ children }) {
     productos[index].liked = false;
     setFavoritos(newFavoritos);
   };
-  const addProduct = (id, name, desc, img, price) => {
+  const addProduct = (id, name, desc, img, price, estreno, gender, tiempo) => {
 
     const newProduct = {
-      id: Date.now(),
-      nombre: name,
-      price: price,
-      imagen: img,
-      descripcion: desc,
+      id : Date.now(),
+      nombre:name,
+      price:price,
+      imagen:img,
+      descripcion:desc,
       userid: id,
-      liked: false
-    }
+      liked: false,
+      año: estreno, 
+genero: gender, 
+tiempo: tiempo,
+  }
     productos.push(newProduct)
 
   }

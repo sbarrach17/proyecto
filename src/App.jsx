@@ -13,8 +13,7 @@ import Perfil from "./views/Perfil";
 import AddProducto from "./views/AddProducto";
 import Publicaciones from "./views/Publicaciones";
 import EditProduct from "./views/EditProduct";
-import Futer from "./components/Futer";
-
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -40,7 +39,7 @@ function App() {
                 <Route path="/publicaciones" element={user ? <Publicaciones /> : <Navigate to="/login" />} />
                 <Route path="/publicaciones/:id" element={user ? <EditProduct /> : <Navigate to="/login" />} />
             </Routes>
-            <Futer />
+            <Footer />
 
 
 
