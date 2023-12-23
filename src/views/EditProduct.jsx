@@ -48,7 +48,7 @@ const EditProduct = () => {
         <div>
             <div className='login'>
                 <div className='container-login'>
-                    <div className='card-login'>
+                    <div className='card-login text-white'>
                         <div className='title-login'>
                             <h3>Editar Película</h3>
                             <hr />

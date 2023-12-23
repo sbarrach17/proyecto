@@ -34,7 +34,7 @@ const AddProducto = () => {
 
     return (
         <div>
-            <div className="login">
+            <div className="login text-white">
                 <div className="container-login">
                     <div className="card-login">
                         <div className="title-login">
