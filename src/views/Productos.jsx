@@ -85,21 +85,8 @@ const Productos = () => {
                                             </Button>
                                         </Link>
                                     }
-                                    boton2={
-                                        <Button
-                                            variant="primary"
-                                            disabled={!user}
-                                            onClick={() => {
-                                                añadirProducto(productos.id);
-                                                setPrecioAc(
-                                                    sumaAc(productos.id)
-                                                );
-                                            }}
-                                            className="mx-2 bg-danger border border-0"
-                                        >
-                                            Añadir 🛒
-                                        </Button>
-                                    }
+                                    
+                                    
                                 />
                             </div>
                         ))}
