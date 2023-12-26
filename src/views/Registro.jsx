@@ -43,7 +43,7 @@ const Registro = () => {
     <div>
       <div className='login'>
         <div className='container-login'>
-          <div className='card-login'>
+          <div className='card-login-register'>
             <div className='title-login text-white'>
               <h3>Registrarse</h3>
               <hr />

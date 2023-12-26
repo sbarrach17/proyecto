@@ -37,7 +37,7 @@ const Nbar = () => {
                                         <Button onClick={() => { setUser(null); setCarrito([]); setPrecioAc(0); setFavoritos([]); setArrayPrecios([]); navigate("/") }}> <b>Cerrar sesión</b> </Button>
                                     </>) : (
                                     <>
-                                        <NavLink to="/productos"  className={"m-2 p-2 text-light"} style={{ textDecoration: 'none' }}><b>Productos</b></NavLink>
+                                        <NavLink to="/productos"  className={"m-2 p-2 text-light"} style={{ textDecoration: 'none' }}><b>Películas</b></NavLink>
                                         <NavLink to="/login"  className={"m-2 p-2 text-light"} style={{ textDecoration: 'none' }}> <b>Iniciar Sesion</b> </NavLink>
                                     </>)}
 

@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     height: 93vh;
-
+margin-top: 4rem;
 }
 
 .card-login {
@@ -17,9 +17,23 @@
     background-color: white;
     border-radius: 5%;
     padding-bottom: 0px;
+    padding-bottom: 0px;
     background-color: rgb(8, 2, 56);
 }
-
+.card-login-register{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border: solid 2px lightgrey;
+    width: 60vh;
+    height: 80vh;
+    background-color: white;
+    border-radius: 5%;
+    padding-bottom: 0px;
+    padding-bottom: 0px;
+    background-color: rgb(8, 2, 56);
+}
 .email-password{
     width: 90%;
 }
@@ -71,6 +85,13 @@
         border: solid 2px black;
         width: 80%;
         
+        background-color: rgb(8, 2, 56);
+        border-radius: 5%;
+        padding-bottom: 0px;
+    }
+    .card-login-register{
+        border: solid 2px black;
+        width: 80%;
         background-color: rgb(8, 2, 56);
         border-radius: 5%;
         padding-bottom: 0px;

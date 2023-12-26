@@ -12,20 +12,17 @@
     font-weight: 900;
     font-style: italic;
     color: #fff;
-    margin-right: 100px;
-}
-h1 {
     text-align: center;
 }
-.buttons {
+
+/* .buttons {
     gap: 10px;
     margin-top: 20px;
     margin-right: 100px;
-}
-@media (max-width: 700px) {
+} */
+/* @media (max-width: 700px) {
     .home {
     display: flex;
     justify-content: center;
-padding-left: 6rem;
 }
-}
+} */

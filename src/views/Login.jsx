@@ -16,7 +16,7 @@ const Login = () => {
         const user = login(email, password);
         if (user) {
 
-            return navigate("/perfil");
+            return navigate("/productos");
         }
         alert("Contraseña incorrecta o email no registrado");
     }

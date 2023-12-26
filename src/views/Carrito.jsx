@@ -1,71 +1,81 @@
-import { Context } from '../Context/Provider'
-import { useContext } from 'react'
-import { Button } from 'react-bootstrap'
-import { capitalizarPrimeraLetra } from './Home'
-import "../styles/carrito.css"
+import { useContext } from 'react';
+import { Context } from '../Context/Provider';
+import { Button } from 'react-bootstrap';
+import CartItem from '../components/CartItem';
+import '../styles/carrito.css';
 
 const Carrito = () => {
+    const { carrito, precioAc, setPrecioAc, añadirProducto, eliminarProducto, sumaAc } = useContext(Context);
 
-    const { carrito } = useContext(Context)
-    const { setCarrito } = useContext(Context)
-    const value = useContext(Context)
-    const precioAc = value.precioAc
-    const setPrecioAc = value.setPrecioAc
-    const añadirProducto = value.añadirProducto
-    const eliminarProducto = value.eliminarProducto
-    const sumaAc = value.sumaAc
-    const newCarrito = carrito.sort(function (a, b) {
-        if (a.id > b.id) {
-            return 1;
-        }
-        if (a.id < b.id) {
-            return -1;
-        }
-        return 0;
-    })
-    let productoList = []
-    let contador = 1
+    const newCarrito = carrito.slice().sort((a, b) => a.id - b.id);
+
+    let productoList = [];
     const newLista = () => {
+        const productoMap = new Map();
+    
+        newCarrito.forEach((producto) => {
+            const count = productoMap.get(producto.id) || 0;
+            productoMap.set(producto.id, count + 1);
+        });
+    
+        productoList = Array.from(productoMap.entries()).map(([id, count]) => {
+            const product = newCarrito.find((p) => p.id === id);
+    
+            return {
+                id: product.id,
+                name: product.nombre,
+                price: product.price,
+                img: product.imagen,
+                count: count,
+                result: (count * product.price).toLocaleString(),
+            };
+        });
+    };
 
-        for (let i = 0; i < newCarrito.length; i++) {
-            if (newCarrito[i] === newCarrito[i + 1]) {
-                contador++
-            }
-            else {
-                const newProductoList = {
-                    id: newCarrito[i].id,
-                    name: newCarrito[i].nombre,
-                    price: newCarrito[i].price,
-                    img: newCarrito[i].imagen,
-                    count: contador,
-                    result: contador * newCarrito[i].price
-                }
-                productoList = [...productoList, newProductoList]
-                contador = 1
-            }
-        }
+    newLista();
+    const handlePagar = () =>{
+        alert(`¡Gracias por tu compra! Estamos trabajando en el envío de tus productos, pronto podrás disfrutarlos`);
     }
-    newLista()
-    console.log(productoList)
-    setCarrito(newCarrito)
     return (
-        <div className='carrito-cont'>
-            <div className='cont'>
-                <h3><b>Detalle del pedido:</b></h3>
-                {productoList.map((producto) =>
-                    <div className='carrito-card border-bottom'>
-                        <div className='carrito-b1'>
-                            <img className='carrito-img' src={producto.img} alt="" />{"  "}<b>{capitalizarPrimeraLetra(producto.name)}</b>
-                        </div>
-                        <div className='carrito-b2'>
-                            <b className='text-success'>${producto.result}</b> {"   "}<Button onClick={() => { añadirProducto(producto.id); setPrecioAc(sumaAc(producto.id)) }} variant="primary" className='mx-2 bg-primary border border-0'>+</Button><b>{producto.count}</b><Button onClick={() => { eliminarProducto(producto.id) }} variant="primary" className='mx-2 bg-danger border border-0'>-</Button>
-                        </div>
-                    </div>
+        <div className="carrito-cont">
+            <div className="cont">
+                {productoList.length > 0 && (
+                    <h4 className="detailsText text-center fs-1">Detalles de pedidos</h4>
                 )}
-                <h3 className='m-3'><b>Total:{"   "}${precioAc}{"   "}<Button variant="primary" className='mx-2 bg-success border border-0'><b>Finalizar Compra</b></Button></b></h3>
+                <h4 className="text-center fs-1">
+                    {productoList.length === 0 ? 'No hay películas en carro' : ''}
+                </h4>
+                {productoList.map((producto) => (
+                    <CartItem
+                        key={producto.id}
+                        id={producto.id}
+                        name={producto.name}
+                        price={producto.price}
+                        img={producto.img}
+                        count={producto.count}
+                        result={producto.result}
+                        eliminarProducto={eliminarProducto}
+                        añadirProducto={añadirProducto}
+                        setPrecioAc={setPrecioAc}
+                        sumaAc={sumaAc}
+                    />
+                ))}
+                {productoList.length > 0 && (
+                    <h3 className="m-3">
+                        <b>
+                            Total: {new Intl.NumberFormat('es-CL', {
+                                style: 'currency',
+                                currency: 'CLP',
+                            }).format(precioAc)}{' '}
+                            <Button variant="primary" className="mx-2 bg-success border border-0" onClick={handlePagar}>
+                                <b>Finalizar Compra</b>
+                            </Button>
+                        </b>
+                    </h3>
+                )}
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Carrito
+export default Carrito;

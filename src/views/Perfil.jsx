@@ -41,7 +41,7 @@ const Perfil = () => {
 
     return (
         <section className='p-5 mt-3'>
-                <h2 className="text-center pt-3">Mis Datos</h2>
+                <h2 className="text-center pt-3">Mis Datos<img width="30" height="30" src="https://img.icons8.com/plasticine/100/employee-card.png" alt="employee-card"/></h2>
             <div className="d-flex justify-content-center flex-column align-content-center text-center">
                 <p className="textCard">{user.name} {user.lastname}</p>
                 <p className="textCard">{user.email}</p>
