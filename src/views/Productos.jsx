@@ -7,10 +7,10 @@ import { Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const Productos = () => {
-    const { productos, sortProducts, setSearchValue, setProductos, user } =
+    const { productos, sortProducts, setProductos, user } =
         useContext(Context);
     const value = useContext(Context);
-    const [filterProduct, setFilterProduct] = useState(productos);
+    const [filterProduct] = useState(productos);
     const añadirProducto = value.añadirProducto;
     const sumaAc = value.sumaAc;
     const setPrecioAc = value.setPrecioAc;
@@ -85,7 +85,21 @@ const Productos = () => {
                                             </Button>
                                         </Link>
                                     }
-                                    
+                                    boton2={
+                                        <Button
+                                            variant="primary"
+                                            disabled={!user}
+                                            onClick={() => {
+                                                añadirProducto(productos.id);
+                                                setPrecioAc(
+                                                    sumaAc(productos.id)
+                                                );
+                                            }}
+                                            className="mx-2 bg-danger border border-0"
+                                        >
+                                            Añadir 🛒
+                                        </Button>
+                                    }
                                     
                                 />
                             </div>

@@ -1,4 +1,5 @@
 
+// eslint-disable-next-line react/prop-types, no-unused-vars
 const Cardb = ({ image, name, direccion, country, gender, duracion, estreno, price, boton1, boton2, boton3 }) => {
   return (
     <div className="card">
@@ -6,7 +7,7 @@ const Cardb = ({ image, name, direccion, country, gender, duracion, estreno, pri
         src={image}
         className="card-img-top card-img"
         alt={name}
-        style={{ objectFit: 'fill', height: 'auto', width: '100%' }}
+        style={{ objectFit: 'cover', height: 'auto', width: '100%' }}
       />
       <div className="cont-desc">
         <div className="card-body-my">

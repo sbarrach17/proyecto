@@ -15,6 +15,7 @@ const AddProducto = () => {
     const [gender, setGender] = useState("");
     const [estreno, setEstreno] = useState("");
     const [tiempo, setTiempo] = useState("");
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         const precio = Number(price);

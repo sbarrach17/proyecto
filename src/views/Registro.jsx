@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { Context } from '../Context/Provider'
 
 const Registro = () => {
-  const { registro, users } = useContext(Context)
+  const { registro } = useContext(Context)
   const navigate = useNavigate()
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

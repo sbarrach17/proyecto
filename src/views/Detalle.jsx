@@ -7,7 +7,7 @@ import "../styles/detalle.css";
 
 const Detalle = () => {
     const params = useParams();
-    const { productos, favoritos, user } = useContext(Context);
+    const { productos, favoritos } = useContext(Context);
     const getProductoById = (id) =>
         productos.find((producto) => producto.id === id);
     const nId = Number(params.id);
@@ -81,6 +81,7 @@ const Detalle = () => {
                                 >
                                     Añadir🛒
                                 </Button>
+                                
                                 <Button
                                     className="bg-warning ms-3"
                                     onClick={() => {

@@ -3,6 +3,7 @@ import "../styles/dashboard.css";
 import { Button } from "react-bootstrap";
 import { Context } from "../Context/Provider";
 import Cardb from "../components/Cardb";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
     const { favoritos, sumaAc, setPrecioAc, añadirProducto, deleteFavoritos } =
@@ -44,9 +45,22 @@ const Dashboard = () => {
                                     }}
                                     className="mx-2 bg-danger border border-0"
                                 >
-                                    Añadir 🛒
+                                    Añadir 
                                 </Button>
                             }
+                            boton1={
+                                <Link
+                                    to={`/producto/${favorito.id}`}
+                                >
+                                    <Button
+                                        variant="primary"
+                                        className="mx-2 bg-primary border border-0"
+                                    >
+                                        Detalle
+                                    </Button>
+                                </Link>
+                            }
+                            
                             boton3={
                                 <Button
                                     onClick={() => {
